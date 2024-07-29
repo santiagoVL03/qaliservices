@@ -175,4 +175,4 @@ com.dseproj.qaliservices
 
 ## 📝 Trello
 
-![Trello Board](ruta/a/tu/imagen/trello.png)
+![Trello Board](https://trello.com/b/GTTml3RA/qaliwarma)
