@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "7f7f7d06-b12e-4920-84ea-dd42e767fb01",
+		"name": "Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16412562",
+		"_collection_link": "https://dark-flare-153510.postman.co/workspace/testing_inventarios~acda591d-cc2e-4f4c-b2b9-fb2c24cdff80/collection/16412562-7f7f7d06-b12e-4920-84ea-dd42e767fb01?action=share&source=collection_link&creator=16412562"
+	},
+	"item": [
+		{
+			"name": "TESTING INVENTARIO INSERTION",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//SCENARIO: GET STRING\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"  pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body schema is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response body contains the expected fields and data types\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.have.property('field1').that.is.a('string');\r",
+							"    pm.expect(responseData).to.have.property('field2').that.is.a('number');\r",
+							"    pm.expect(responseData).to.have.property('field3').that.is.an('array');\r",
+							"    pm.expect(responseData).to.have.property('field4').that.is.an('object');\r",
+							"    pm.expect(responseData).to.have.property('field5').that.is.an('object');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idproductos\": 10,\r\n    \"nombre_prod\": \"Granel\",\r\n    \"cantidad\": 50,\r\n    \"estado\": \"Malo\",\r\n    \"idvend\": 225\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/proj/inventario/guardar",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"proj",
+						"inventario",
+						"guardar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TESTING INVENTARIO GET LIST OF PRODUCTS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields - idproductos, nombre_prod, cantidad, estado, and idvend\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"  \r",
+							"  pm.expect(responseData).to.be.an('array');\r",
+							"  responseData.forEach(function(item) {\r",
+							"    pm.expect(item).to.be.an('object');\r",
+							"    pm.expect(item).to.include.all.keys('idproductos', 'nombre_prod', 'cantidad', 'estado', 'idvend');\r",
+							"  });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Validate properties in the response\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    \r",
+							"    responseData.forEach(function(item) {\r",
+							"        pm.expect(item.idproductos).to.be.a('number').and.to.be.at.least(0, \"idproductos should be a non-negative integer\");\r",
+							"        pm.expect(item.nombre_prod).to.be.a('string').and.to.have.lengthOf.at.least(1, \"nombre_prod should be a non-empty string\");\r",
+							"        pm.expect(item.cantidad).to.be.a('number').and.to.be.at.least(0, \"cantidad should be a non-negative integer\");\r",
+							"        pm.expect(item.estado).to.be.a('string').and.to.have.lengthOf.at.least(1, \"estado should be a non-empty string\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Idvend is a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"\r",
+							"    pm.expect(responseData).to.be.an('array');\r",
+							"    responseData.forEach(function(item) {\r",
+							"        pm.expect(item.idvend).to.be.a('number');\r",
+							"        pm.expect(item.idvend).to.be.at.least(0, \"Idvend should be a non-negative integer\");\r",
+							"    });\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/proj/inventario/listar",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"proj",
+						"inventario",
+						"listar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TESTING INVENTARIO EDIT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_prod\": \"Pollo\",\r\n    \"cantidad\": 50,\r\n    \"estado\": \"Manido\",\r\n    \"idvend\": 25\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8086/proj/inventario/editar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"proj",
+						"inventario",
+						"editar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TESTING INVENTARIO DELETING",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8086/proj/inventario/eliminar/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"proj",
+						"inventario",
+						"eliminar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

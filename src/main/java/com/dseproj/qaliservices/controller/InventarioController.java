@@ -41,11 +41,10 @@ public class InventarioController {
     }
 
     @GetMapping(path = "/inventario/listar")
-    public String listar (){
+    public List<InventarioEntity> listar (){
         List<InventarioEntity> productos_inv = inv.listar();
-        String productosString = productos_inv.toString();
         
-        return productosString;
+        return productos_inv;
     }
     @PostMapping("/inventario/guardar")
     public int save(@RequestBody InventarioEntity inventarioEntity) {

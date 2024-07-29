@@ -119,11 +119,57 @@ com.dseproj.qaliservices
 
 - **CRUD**: Prueba cada operación del CRUD.
 
-### 2. ▶️ Ejecutar los Casos de Prueba
+- Se realizan los testing de las funciones **Create**, **Read**, **Update**, y **Delete** utilizando Postman.
 
-- **SEND REQUEST**: Envía las solicitudes a los endpoints correspondientes.
+- Para ello se crea un Workspace con las colecciones correspondientes
 
-### 3. ✅ Verificar Resultados
+![Creacion del Workspace y Colecciones testeando posibles resultados del test](images/testing_inv.PNG)
+
+### 2. ▶️ Ejecutar los Casos de Prueba ✅ Y Verificar Resultados
+
+- Posteriormente mandamos los test correspondientes por cada uno de los servicios implementados
+
+### Listar Inventario
+
+- En este caso al ser un get el unico caso es llamar al servicio correspondiente, que no realiza modificaciones
+
+![Listar Inv](images/testing_listar.PNG)
+
+- **Tests Pasados y Declinados en Listar 4/5 Test Pasados**
+
+![Listar Test](images/test_pasados_listar.PNG)
+
+### Insercion de Elementos en el Inventario
+
+- **Tests Pasados y Declinados en Insert 4/4 Test Pasados** Caso 1: El archivo .json es mandado de forma correcta respetando los tipos de datos
+
+![Listar Test](images/test_pasados_insert.PNG)
+
+- Caso 2: El archivo .json es mandado de forma incorrecta sin respetar los tipos de datos **Cuando?** El envio de datos es incorrecto, **3/4 Test Pasados**
+
+![Json es incorrecto](images/test_declinados_insert.PNG)
+
+### Actualizacion de Elementos en el Inventario
+
+- **Tests Pasados y Declinados en Actualizacion 5/5 Test Pasados** Caso 1: El ID si se encuentra en la BD
+
+![Listar Test](images/test_pasados_update.PNG)
+
+- Caso 2: El ID no se encuentra en la BD
+
+![Listar Test](images/test_declinados_edit.PNG)
+
+### Eliminacion de Elementos en el Inventario
+
+- **Tests Pasados y Declinados en la Eliminacion 2/4 Test Pasados** Caso 1: Mandamos una cadena cuyo ID no se encuentre en la BD
+
+![Listar Test](images/test_declinados_eliminacion.PNG)
+
+- Caso 2: Mandamos una cadena cuyo ID si se encuentre en la BD
+
+![Listar Test](images/test_pasados_eliminacion.PNG)
+
+- **Todos los Test y Collections se encuentran en el WORKSPACE y han sido exportados a un archivo .JSON para su importacion usando POSTMAN**
 
 - **Casos de Prueba**: Revisa los resultados para verificar qué casos pasaron o fallaron.
 
