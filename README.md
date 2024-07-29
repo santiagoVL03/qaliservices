@@ -1,5 +1,13 @@
 # Qaliwarma Services
 
+## Integrantes
+- Santiago Vilca Limachi
+- Henry Yanqui Vera
+- Edson Bejar Roman
+- Patrick Ramirez Zarate
+- Eduardo Ruiz Mamani
+- David Tamo Turpo
+
 ## 📜 Vista General de Arquitectura
 
 El patrón **MVC (Modelo-Vista-Controlador)** es una arquitectura que separa una aplicación en tres componentes interconectados. Esta separación permite gestionar la complejidad y facilita la escalabilidad y el mantenimiento del código.
