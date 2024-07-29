@@ -4,7 +4,7 @@
 - Santiago Vilca Limachi
 - Henry Yanqui Vera
 - Edson Bejar Roman
-- Patrick Ramirez Zarate
+
 - Eduardo Ruiz Mamani
 - David Tamo Turpo
 
