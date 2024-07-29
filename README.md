@@ -1,4 +1,4 @@
-# qaliservices
+# Qaliwarma Services
 
 ## 📜 Vista General de Arquitectura
 
@@ -83,15 +83,6 @@ com.dseproj.qaliservices
 |----QaliservicesApplication.java
 |----ServletInitializer.java
 
-### Explicación:
-
-- **`controller`**: Maneja la lógica de interacción con el usuario y las solicitudes HTTP.
-- **`entity`**: Define las estructuras de datos principales que se utilizan en la aplicación.
-- **`impl`**: Contiene la lógica de negocio específica de la aplicación implementada en los servicios.
-- **`repository`**: Proporciona métodos para acceder a la base de datos.
-- **`services`**: Define los contratos de los servicios que la aplicación ofrece.
-- **`QaliservicesApplication.java`**: Arranca la aplicación Spring Boot.
-- **`ServletInitializer.java`**: Configura el entorno del servlet.
 
 
 ### 🗂 Nombres de Directorios/Archivos
