@@ -264,4 +264,4 @@ El proyecto sigue las directrices de Spring (MVC) y JPA (ORM), organizada para s
 
 ## 📝 Trello
 
-![Trello Board](https://trello.com/b/GTTml3RA/qaliwarma)
+- https://trello.com/b/GTTml3RA/qaliwarma
