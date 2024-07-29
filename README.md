@@ -106,6 +106,27 @@ com.dseproj.qaliservices
 ### 📝 CRUD
 
 - Implementa operaciones de **Create**, **Read**, **Update**, y **Delete** utilizando Spring Data JPA.
+#### Estructura del Proyecto
+
+El proyecto sigue las directrices de Spring (MVC) y JPA (ORM), organizada para separar claramente las responsabilidades
+
+#### Controller
+- **InventarioController**: Maneja las operaciones relacionadas con el inventario.
+- **DocumentManagementController**: Controla la gestión de documentos.
+
+#### Entity
+- **InventarioEntity**: Representa un producto en el inventario.
+
+#### Impl
+- **InventarioImpl**: Implementa la lógica de negocio para el inventario.
+- **DocumentManagementServiceImpl**: Implementa la lógica de negocio para la gestión de documentos.
+
+#### Repository
+- **InventarioRepository**: Maneja la persistencia de datos para `InventarioEntity`.
+
+## Services
+- **DocumentManagementService**: Define las operaciones para la gestión de documentos.
+- **IInventario**: Define las operaciones CRUD para `InventarioEntity`.
 
 ### 📚 Principios SOLID
 
@@ -114,12 +135,72 @@ com.dseproj.qaliservices
 - **L**: Liskov Substitution Principle
 - **I**: Interface Segregation Principle
 - **D**: Dependency Inversion Principle
+  
+1. **Single Responsibility Principle (SRP)**
+   - **Descripción**: Cada clase debe tener una única responsabilidad o motivo para cambiar.
+   - **Implementación en el Proyecto**:
+     - Las clases de controladores, servicios y repositorios están claramente separadas. 
+     - Por ejemplo, `InventarioController` maneja las solicitudes relacionadas con el inventario, mientras que `DocumentManagementController` maneja las solicitudes de gestión de documentos. Esto asegura que cada controlador tiene una única responsabilidad.
+     - Las clases de servicios, como `InventarioImpl` y `DocumentManagementServiceImpl`, contienen la lógica de negocio específica para sus respectivos dominios.
+     - Los repositorios como `InventarioRepository` se encargan exclusivamente de la persistencia de datos.
+
+2. **Open/Closed Principle (OCP)**
+   - **Descripción**: Las entidades de software deben estar abiertas para la extensión, pero cerradas para la modificación.
+   - **Implementación en el Proyecto**:
+     - El uso de interfaces permite que las clases sean extendidas sin necesidad de ser modificadas. Por ejemplo, `IInventario` define las operaciones CRUD para `InventarioEntity`, y `InventarioImpl` implementa esta interfaz.
+     - Las implementaciones de los servicios pueden ser extendidas para agregar nueva funcionalidad sin alterar el código existente.
+
+3. **Liskov Substitution Principle (LSP)**
+   - **Descripción**: Las subclases deben ser sustituibles por sus superclases sin alterar el comportamiento del programa.
+   - **Implementación en el Proyecto**:
+     - Las interfaces y sus implementaciones aseguran que las subclases pueden ser usadas de manera intercambiable. Por ejemplo, cualquier implementación de `IInventario` puede ser utilizada sin cambiar el código que depende de esta interfaz.
+     - Las pruebas unitarias verifican que las implementaciones cumplen con los contratos definidos por las interfaces, asegurando que se pueden intercambiar sin problemas.
+
+4. **Interface Segregation Principle (ISP)**
+   - **Descripción**: Los clientes no deben estar forzados a depender de interfaces que no utilizan.
+   - **Implementación en el Proyecto**:
+     - Se crean interfaces específicas para cada funcionalidad en lugar de una interfaz general. Por ejemplo, `IInventario` define solo las operaciones CRUD necesarias para `InventarioEntity`, y `DocumentManagementService` define las operaciones para la gestión de documentos.
+     - Esto asegura que las clases implementen solo lo que necesitan, evitando métodos innecesarios que no se utilizan.
+
+5. **Dependency Inversion Principle (DIP)**
+   - **Descripción**: Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
+   - **Implementación en el Proyecto**:
+     - El proyecto utiliza inyección de dependencias para cumplir con este principio. Las dependencias se inyectan a través de los constructores o mediante la configuración de Spring, asegurando que las clases dependan de abstracciones en lugar de implementaciones concretas.
+     - Por ejemplo, `InventarioController` no depende directamente de `InventarioImpl`, sino de la interfaz `IInventario`, permitiendo cambiar la implementación sin afectar el controlador.
+
 
 ### 📦 DDD (Domain-Driven Design)
 
 - **Entidades**: Definidas en el dominio.
 - **Repositorios**: Implementados para manejar la persistencia.
 - **Servicios**: Implementan la lógica de negocio.
+1. **Entidades del Dominio**
+   - **Descripción**: Las entidades representan los objetos del dominio con una identidad propia que perdura a lo largo del tiempo.
+   - **Implementación en el Proyecto**:
+     - `InventarioEntity` es una entidad que representa un producto en el inventario, con atributos como `idproductos`, `nombre_prod`, `cantidad`, `estado` y `idvend`. Esta entidad encapsula tanto los datos como la lógica de negocio relevante para un producto de inventario.
+
+2. **Repositorios**
+   - **Descripción**: Los repositorios son responsables de la persistencia y recuperación de las entidades del dominio.
+   - **Implementación en el Proyecto**:
+     - `InventarioRepository` maneja la persistencia de datos para `InventarioEntity` utilizando Spring Data JPA. Proporciona métodos para las operaciones CRUD, como `save()`, `delete()`, `listar()`, `listarid()`, y `actualizar()`.
+     - Esto separa la lógica de acceso a datos de la lógica de negocio, facilitando la gestión y prueba del código.
+
+3. **Servicios**
+   - **Descripción**: Los servicios encapsulan la lógica de negocio y coordinan las operaciones entre las entidades y los repositorios.
+   - **Implementación en el Proyecto**:
+     - `InventarioImpl` implementa la lógica de negocio para las operaciones de inventario, mientras que `DocumentManagementServiceImpl` maneja la gestión de documentos.
+     - Estos servicios utilizan los repositorios para acceder y manipular los datos, manteniendo la lógica de negocio separada del acceso a datos.
+
+4. **Pruebas de CRUD**
+   - **Descripción**: Las pruebas aseguran que las operaciones de Crear, Leer, Actualizar y Eliminar se comporten según lo esperado.
+   - **Implementación en el Proyecto**:
+     - Se utilizan herramientas como Postman para realizar pruebas de las operaciones CRUD. Por ejemplo, se crean y envían solicitudes POST para insertar elementos en el inventario y se verifican los resultados esperados.
+     - Los casos de prueba incluyen tanto situaciones normales como casos de borde, como enviar datos incorrectos o intentar actualizar un producto que no existe en la base de datos.
+
+
+
+
+
 
 ## 🧪 Casos de Prueba por Medio de Postman
 
