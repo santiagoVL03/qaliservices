@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla de Inicio</title>
+    <!-- Enlazar Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px; /* Para que el contenido no quede oculto debajo del navbar */
+        }
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            color: rgb(255, 164, 111);
+        }
+        .full-width-section {
+            padding: 60px 0;
+            color: #fff;
+            text-align: center;
+        }
+        .section1 {
+            background-color: #272727;
+        }
+        .section2 {
+            background-color: rgb(255, 164, 111);
+        }
+        .section3 {
+            background-color: #272727;
+        }
+        .footer {
+            background-color: rgb(255, 164, 111);
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección de héroe -->
+    <div class="hero-section">
+        <div class="container">
+            <h1>Más fuerte, más grande, más venas, más kawaii</h1>
+        </div>
+    </div>
+
+    <!-- Sección 1 -->
+    <div class="full-width-section section1">
+        <div class="container">
+            <h2>Sección 1</h2>
+            <p>Contenido de la primera sección, que se extiende de lado a lado de la pantalla.</p>
+        </div>
+    </div>
+
+    <!-- Sección 2 -->
+    <div class="full-width-section section2">
+        <div class="container">
+            <h2>Sección 2</h2>
+            <p>Contenido de la segunda sección, que también se extiende de lado a lado de la pantalla.</p>
+        </div>
+    </div>
+
+    <!-- Sección 3 -->
+    <div class="full-width-section section3">
+        <div class="container">
+            <h2>Sección 3</h2>
+            <p>Contenido de la tercera sección, extendiéndose completamente a lo ancho de la pantalla.</p>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Enlazar Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
