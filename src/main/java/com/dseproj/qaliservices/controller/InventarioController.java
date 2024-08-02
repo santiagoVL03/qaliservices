@@ -29,10 +29,10 @@ public class InventarioController {
     private IInventario inv;
 
     @GetMapping(path = "/inventario/buscar/{nombreprod}")
-    public String addProducto (@PathVariable("nombreprod") String nombreprod) {
+    public String addProducto (@PathVariable("nombreprod") String nombreProducto) {
         String respuesta = null;
         try {
-            respuesta = inv.AddProducto(nombreprod);
+            respuesta = inv.addProducto(nombreProducto);
             
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -54,7 +54,7 @@ public class InventarioController {
     }
     @PostMapping("/inventario/editar/{id}")
     public ResponseEntity<String> editar(@PathVariable int id, @RequestBody InventarioEntity inventarioEntity) {
-        InventarioEntity inventario = inv.actualizar(id, inventarioEntity);
+        InventarioEntity inventario = inv.update(id, inventarioEntity);
 
         if (inventario != null) {
             return ResponseEntity.ok("Inventario actualizado correctamente.");

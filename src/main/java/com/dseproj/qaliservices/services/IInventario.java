@@ -7,10 +7,10 @@ import com.dseproj.qaliservices.entity.InventarioEntity;
 
 public interface IInventario {
 
-    String AddProducto(String nombreproducto);
+    String addProducto(String nombreProducto);
     public List<InventarioEntity>listar();
     public Optional<InventarioEntity>listarid(int id);
     public int save (InventarioEntity inv);
     public void delete (int id);
-    public InventarioEntity actualizar(int id, InventarioEntity inv);
+    public InventarioEntity update(int id, InventarioEntity inv);
 }

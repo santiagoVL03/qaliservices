@@ -11,31 +11,31 @@ import jakarta.persistence.Table;
 public class InventarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idproductos;
-    private String nombre_prod;
+    private int idProducto;
+    private String nombreProducto;
     private int cantidad;
     private String estado;
-    private int idvend;
+    private int idVendedor;
     public InventarioEntity() {
     }
-    public InventarioEntity(int idproductos, String nombre_prod, int cantidad, String estado, int idvend) {
-        this.idproductos = idproductos;
-        this.nombre_prod = nombre_prod;
+    public InventarioEntity(int idProducto, String nombreProducto, int cantidad, String estado, int idVendedor) {
+        this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
         this.cantidad = cantidad;
         this.estado = estado;
-        this.idvend = idvend;
+        this.idVendedor = idVendedor;
     }
     public int getIdproductos() {
-        return idproductos;
+        return idProducto;
     }
-    public void setIdproductos(int idproductos) {
-        this.idproductos = idproductos;
+    public void setIdproducto(int idProducto) {
+        this.idProducto = idProducto;
     }
-    public String getNombre_prod() {
-        return nombre_prod;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
-    public void setNombre_prod(String nombre_prod) {
-        this.nombre_prod = nombre_prod;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
     public int getCantidad() {
         return cantidad;
@@ -49,16 +49,16 @@ public class InventarioEntity {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public int getIdvend() {
-        return idvend;
+    public int getIdVendedor() {
+        return idVendedor;
     }
-    public void setIdvend(int idvend) {
-        this.idvend = idvend;
+    public void setIdVendedor(int idVendedor) {
+        this.idVendedor = idVendedor;
     }
     @Override
     public String toString() {
-        return "InventarioEntity [idproductos=" + idproductos + ", nombre_prod=" + nombre_prod + ", cantidad="
-                + cantidad + ", estado=" + estado + ", idvend=" + idvend + "]";
+        return "InventarioEntity [idProducto=" + idProducto + ", nombreProducto=" + nombreProducto + ", cantidad="
+                + cantidad + ", estado=" + estado + ", idVendedor=" + idVendedor + "]";
     }
     
 }
