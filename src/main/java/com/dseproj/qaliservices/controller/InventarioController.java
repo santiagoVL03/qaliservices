@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dseproj.qaliservices.model.InventarioEntity;
+import com.dseproj.qaliservices.domain.InventarioEntity;
 import com.dseproj.qaliservices.services.IInventario;
 
 import org.springframework.web.bind.annotation.PostMapping;

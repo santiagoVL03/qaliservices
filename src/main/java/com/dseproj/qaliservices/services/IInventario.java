@@ -3,7 +3,7 @@ package com.dseproj.qaliservices.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.dseproj.qaliservices.model.InventarioEntity;
+import com.dseproj.qaliservices.domain.InventarioEntity;
 
 public interface IInventario {
 
