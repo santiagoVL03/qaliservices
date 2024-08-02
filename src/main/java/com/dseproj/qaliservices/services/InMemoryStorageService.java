@@ -1,6 +1,4 @@
-package com.dseproj.qaliservices.impl;
-
-import com.dseproj.qaliservices.services.StorageService;
+package com.dseproj.qaliservices.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

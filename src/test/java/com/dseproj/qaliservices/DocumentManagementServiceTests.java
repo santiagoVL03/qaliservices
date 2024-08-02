@@ -1,8 +1,8 @@
 // src/test/java/com/desproj/qaliservices/DocumentManagementServiceTests.java
 package com.dseproj.qaliservices;
 
-import com.dseproj.qaliservices.impl.DocumentManagementServiceImpl;
-import com.dseproj.qaliservices.impl.InMemoryStorageService;
+import com.dseproj.qaliservices.services.DocumentManagementServiceImpl;
+import com.dseproj.qaliservices.services.InMemoryStorageService;
 import com.dseproj.qaliservices.services.StorageService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

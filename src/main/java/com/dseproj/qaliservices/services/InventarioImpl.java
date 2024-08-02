@@ -1,4 +1,4 @@
-package com.dseproj.qaliservices.impl;
+package com.dseproj.qaliservices.services;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.dseproj.qaliservices.model.InventarioEntity;
 import com.dseproj.qaliservices.repository.InventarioRepository;
-import com.dseproj.qaliservices.services.IInventario;
 
 import jakarta.persistence.EntityNotFoundException;
 

@@ -1,6 +1,5 @@
-package com.dseproj.qaliservices.impl;
+package com.dseproj.qaliservices.services;
 
-import com.dseproj.qaliservices.services.StorageService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

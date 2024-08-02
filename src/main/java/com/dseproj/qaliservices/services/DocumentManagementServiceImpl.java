@@ -1,8 +1,6 @@
 // src/main/java/com/desproj/qaliservices/impl/DocumentManagementServiceImpl.java
-package com.dseproj.qaliservices.impl;
+package com.dseproj.qaliservices.services;
 
-import com.dseproj.qaliservices.services.DocumentManagementService;
-import com.dseproj.qaliservices.services.StorageService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
