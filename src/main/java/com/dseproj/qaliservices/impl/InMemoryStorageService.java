@@ -1,12 +1,15 @@
 package com.dseproj.qaliservices.impl;
 
 import com.dseproj.qaliservices.services.StorageService;
+
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Primary
 public class InMemoryStorageService implements StorageService {
 
     private List<String> documents = new ArrayList<>();

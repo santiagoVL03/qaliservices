@@ -7,13 +7,12 @@ import com.dseproj.qaliservices.services.StorageService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class DocumentManagementServiceTests {
+class DocumentManagementServiceTests {
 
     @Autowired
     private DocumentManagementServiceImpl documentManagementService;
@@ -27,7 +26,7 @@ public class DocumentManagementServiceTests {
     }
 
     @Test
-    public void testUploadAndListDocuments() {
+    void testUploadAndListDocuments() {
         documentManagementService.uploadDocument("Test Document");
         List<String> result = documentManagementService.listDocuments();
 
@@ -36,7 +35,7 @@ public class DocumentManagementServiceTests {
     }
 
     @Test
-    public void testDownloadDocument() {
+    void testDownloadDocument() {
         documentManagementService.uploadDocument("Test Document");
         String document = documentManagementService.downloadDocument("Test Document");
 
@@ -45,7 +44,7 @@ public class DocumentManagementServiceTests {
     }
 
     @Test
-    public void testDeleteDocument() {
+    void testDeleteDocument() {
         documentManagementService.uploadDocument("Test Document");
         documentManagementService.deleteDocument("Test Document");
 

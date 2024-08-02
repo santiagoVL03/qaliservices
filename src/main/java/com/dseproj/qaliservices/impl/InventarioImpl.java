@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dseproj.qaliservices.entity.InventarioEntity;
+import com.dseproj.qaliservices.model.InventarioEntity;
 import com.dseproj.qaliservices.repository.InventarioRepository;
 import com.dseproj.qaliservices.services.IInventario;
 

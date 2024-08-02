@@ -1,4 +1,4 @@
-package com.dseproj.qaliservices.entity;
+package com.dseproj.qaliservices.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
