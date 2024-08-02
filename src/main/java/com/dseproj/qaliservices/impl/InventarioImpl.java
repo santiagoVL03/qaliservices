@@ -6,35 +6,37 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dseproj.qaliservices.entity.InventarioEntity;
+import com.dseproj.qaliservices.domain.InventarioEntity;
 import com.dseproj.qaliservices.repository.InventarioRepository;
 import com.dseproj.qaliservices.services.IInventario;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class InventarioImpl implements IInventario{
 
     @Autowired
-    private InventarioRepository data_repo;
+    private InventarioRepository dataRepo;
 
     @Override
-    public String AddProducto(String nombre) {
-        return "Se procede a guardar el producto " + nombre;
+    public String addProducto(String nombreProducto) {
+        return "Se procede a guardar el producto " + nombreProducto;
     }
     
     @Override
     public List<InventarioEntity> listar() {
-        return (List<InventarioEntity>)data_repo.findAll();
+        return (List<InventarioEntity>)dataRepo.findAll();
     }
 
     @Override
     public Optional<InventarioEntity> listarid(int id) {
-        return data_repo.findById(id);
+        return dataRepo.findById(id);
     }
 
     @Override
     public int save(InventarioEntity inv) {
         int res = 0;
-        InventarioEntity inventario = data_repo.save(inv);
+        InventarioEntity inventario = dataRepo.save(inv);
         if (!inventario.equals(null)) {
             res = 1;
         }
@@ -43,26 +45,26 @@ public class InventarioImpl implements IInventario{
     }
 
     @Override
-    public void delete(int id) {
-        if (data_repo.existsById(id)) {
-            data_repo.deleteById(id);
+    public void delete(int idInventario) {
+        if (dataRepo.existsById(idInventario)) {
+            dataRepo.deleteById(idInventario);
         } else {
-            throw new RuntimeException("Inventario no encontrado con id: " + id);
+            throw new EntityNotFoundException("Inventario no encontrado con id: " + idInventario);
         }
     }
 
     @Override
-    public InventarioEntity actualizar(int id, InventarioEntity inv) {
-        Optional<InventarioEntity> inventarioOpt = data_repo.findById(id);
+    public InventarioEntity update(int idInventario, InventarioEntity inv) {
+        Optional<InventarioEntity> inventarioOpt = dataRepo.findById(idInventario);
         if (inventarioOpt.isPresent()) {
             InventarioEntity inventarioExistente = inventarioOpt.get();
             
-            inventarioExistente.setNombre_prod(inv.getNombre_prod());
+            inventarioExistente.setNombreProducto(inv.getNombreProducto());
             inventarioExistente.setCantidad(inv.getCantidad());
             inventarioExistente.setEstado(inv.getEstado());
-            inventarioExistente.setIdvend(inv.getIdvend());
+            inventarioExistente.setIdVendedor(inv.getIdVendedor());
             
-            data_repo.save(inventarioExistente);
+            dataRepo.save(inventarioExistente);
             return inventarioExistente;
         } else {
             return null;

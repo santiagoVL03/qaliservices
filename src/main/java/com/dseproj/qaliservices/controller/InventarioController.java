@@ -1,7 +1,6 @@
 package com.dseproj.qaliservices.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,10 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dseproj.qaliservices.entity.InventarioEntity;
+import com.dseproj.qaliservices.domain.InventarioEntity;
 import com.dseproj.qaliservices.services.IInventario;
-
-import jakarta.ws.rs.core.Response;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,10 +26,10 @@ public class InventarioController {
     private IInventario inv;
 
     @GetMapping(path = "/inventario/buscar/{nombreprod}")
-    public String addProducto (@PathVariable("nombreprod") String nombreprod) {
+    public String addProducto (@PathVariable("nombreprod") String nombreProducto) {
         String respuesta = null;
         try {
-            respuesta = inv.AddProducto(nombreprod);
+            respuesta = inv.addProducto(nombreProducto);
             
         } catch (Exception e) {
             System.out.println("Error: " + e);
@@ -54,7 +51,7 @@ public class InventarioController {
     }
     @PostMapping("/inventario/editar/{id}")
     public ResponseEntity<String> editar(@PathVariable int id, @RequestBody InventarioEntity inventarioEntity) {
-        InventarioEntity inventario = inv.actualizar(id, inventarioEntity);
+        InventarioEntity inventario = inv.update(id, inventarioEntity);
 
         if (inventario != null) {
             return ResponseEntity.ok("Inventario actualizado correctamente.");
