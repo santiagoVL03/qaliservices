@@ -2,38 +2,37 @@
 package com.dseproj.qaliservices.impl;
 
 import com.dseproj.qaliservices.services.DocumentManagementService;
+import com.dseproj.qaliservices.services.StorageService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DocumentManagementServiceImpl implements DocumentManagementService {
 
-    private List<String> documents = new ArrayList<>();
+    private final StorageService storageService;
+
+    public DocumentManagementServiceImpl(StorageService storageService) {
+        this.storageService = storageService;
+    }
 
     @Override
     public void uploadDocument(String document) {
-        documents.add(document);
+        storageService.store(document);
     }
 
     @Override
     public String downloadDocument(String documentId) {
-        // Aquí se añadiría lógica para obtener el documento por su ID
-        // Por simplicidad, en este ejemplo se asume que el ID es el mismo que el nombre del documento
-        return documents.stream()
-                .filter(doc -> doc.equals(documentId))
-                .findFirst()
-                .orElse(null);
+        return storageService.retrieve(documentId);
     }
 
     @Override
     public List<String> listDocuments() {
-        return new ArrayList<>(documents);
+        return storageService.list();
     }
 
     @Override
     public void deleteDocument(String documentId) {
-        documents.remove(documentId);
+        storageService.delete(documentId);
     }
 }
